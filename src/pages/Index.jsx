@@ -43,7 +43,12 @@ const Index = () => {
       </header>
 
       {/* Hero */}
-      <section className="text-center px-6 py-16 max-w-4xl mx-auto">
+      <section className="relative text-center px-6 py-16 max-w-4xl mx-auto z-10">
+  <img
+    src="/lovable-uploads/656931b0-6c0f-4836-b65b-29249d21fa0f.png"
+    alt="InTech Logo Watermark"
+    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] opacity-30 pointer-events-none select-none z-0"
+  />
         <h2 className="text-4xl font-extrabold bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent mb-4">
           Benvenuto in InTech PlanPro
         </h2>
