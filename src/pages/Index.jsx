@@ -1,46 +1,44 @@
-<!DOCTYPE html>
-<html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>InTech Plan Pro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
-        background-color: #f8f9fa;
-        margin: 0;
-        padding: 2rem;
-      }
-      .container {
-        max-width: 960px;
-        margin: 0 auto;
-      }
-      .image-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-        margin-top: 2rem;
-      }
-      .image-grid img {
-        width: 100%;
-        border-radius: 16px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-      h1 {
-        text-align: center;
-        font-size: 2rem;
-        color: #343a40;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Panoramica del Progetto</h1>
-      <div class="image-grid">
-        <img src="992da991-9314-4714-b8ec-3932d018c350.png" alt="Screen 1" />
-        <img src="cb480443-7ce5-4e61-8132-a61b840b9818.png" alt="Screen 2" />
-      </div>
+import { Button } from "@/components/ui/button";
+import {
+  Card, CardContent, CardDescription, CardHeader, CardTitle,
+} from "@/components/ui/card";
+import { Users, BarChart3, Search, Calendar, LogIn } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+const Index = () => {
+  const navigate = useNavigate();
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      <header className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center space-x-3">
+              <img
+                src="/lovable-uploads/eae02955-72f2-4b71-afca-8370c414dfd2.png"
+                alt="InTech Logo"
+                className="h-10 w-auto"
+              />
+              <div>
+                <h1 className="text-xl font-bold text-gray-900">InTech PlanPro</h1>
+                <p className="text-sm text-gray-600">Sistema di Gestione Tecnici</p>
+              </div>
+            </div>
+            <Button
+              onClick={() => navigate("/login")}
+              className="flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700"
+            >
+              <LogIn className="w-4 h-4" />
+              <span>Accedi al Sistema</span>
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      {/* ...continua con il resto come ti avevo dato prima */}
     </div>
-  </body>
-</html>
+  );
+};
+
+export default Index;
+
