@@ -1,146 +1,84 @@
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Search, BarChart3, Calendar, Users, LogIn } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Search, BarChart3, LogIn } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0f0f0f] via-[#1a1a1a] to-[#121212] text-white">
+    <div className="min-h-screen bg-neutral-950 text-white relative overflow-hidden">
+      {/* Watermark background */}
+      <img
+        src="/your-logo-path.png"
+        alt="InTech Watermark"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] opacity-10 pointer-events-none select-none"
+      />
+
       {/* Header */}
-      <header className="border-b border-neutral-800 shadow-sm bg-black/60 backdrop-blur-md sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <img
-              src="/lovable-uploads/eae02955-72f2-4b71-afca-8370c414dfd2.png"
-              alt="Logo"
-              className="h-10 w-10 object-contain rounded-md"
-            />
-            <div>
-              <h1 className="text-xl font-bold text-white tracking-wide">
-                InTech PlanPro
-              </h1>
-              <p className="text-xs text-neutral-400">
-                Sistema di Gestione Tecnici
-              </p>
-            </div>
+      <header className="bg-black/70 border-b border-neutral-800 px-6 py-4 flex items-center justify-between relative z-10">
+        <div className="flex items-center gap-3">
+          <img src="/your-logo-path.png" className="h-10" alt="Logo" />
+          <div>
+            <h1 className="text-xl font-bold">InTech PlanPro</h1>
+            <p className="text-sm text-neutral-400">Sistema di Gestione Tecnici</p>
           </div>
-          <Button
-            onClick={() => navigate("/login")}
-            className="bg-gradient-to-r from-fuchsia-600 to-purple-700 hover:from-fuchsia-500 hover:to-purple-600 text-white px-4 py-2 rounded-md flex items-center gap-2 shadow-lg"
-          >
-            <LogIn className="h-4 w-4" />
-            Accedi al Sistema
-          </Button>
         </div>
+        <Button onClick={() => navigate("/login")} className="bg-gradient-to-r from-fuchsia-600 to-pink-600 hover:from-fuchsia-500 hover:to-pink-500 text-white">
+          <LogIn className="w-4 h-4 mr-2" />
+          Accedi al Sistema
+        </Button>
       </header>
 
       {/* Hero */}
-      <section className="relative text-center px-6 py-16 max-w-4xl mx-auto z-10">
-  <img
-    src="/lovable-uploads/656931b0-6c0f-4836-b65b-29249d21fa0f.png"
-    alt="InTech Logo Watermark"
-    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] opacity-30 pointer-events-none select-none z-0"
-  />
-        <h2 className="text-4xl font-extrabold bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent mb-4">
-          Benvenuto in InTech PlanPro
-        </h2>
-        <p className="text-lg text-neutral-300">
-          Dimentica i file Excel e le macro. Con InTech PlanPro gestisci
-          tecnici, mandays e disponibilità in un’unica piattaforma moderna e
-          visuale.
-        </p>
-      </section>
+      <main className="px-6 py-20 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent">
+            Benvenuto in InTech PlanPro
+          </h2>
+          <p className="text-lg text-neutral-400 mt-4">
+            Gestisci la ricerca dei tecnici, visualizza disponibilità e mandays senza più utilizzare Excel. Tutto in un'unica piattaforma moderna e accessibile.
+          </p>
+        </div>
 
-      {/* Features */}
-      <section className="grid md:grid-cols-2 gap-8 px-6 max-w-5xl mx-auto pb-16">
-        {[{
-          title: "Planning Tecnici",
-          desc: "Trova subito i tecnici giusti con ricerca per competenze, zona e disponibilità.",
-          icon: <Search className="h-7 w-7 text-white" />,
-          gradient: "from-green-400 to-emerald-500",
-          onClick: () => navigate("/planning"),
-          cta: "Accedi al Planning"
-        }, {
-          title: "Mandays Globali",
-          desc: "Analizza e visualizza i mandays aggregati con Power BI integrato.",
-          icon: <BarChart3 className="h-7 w-7 text-white" />,
-          gradient: "from-blue-500 to-indigo-500",
-          disabled: true,
-          cta: "Prossimamente"
-        }].map(({ title, desc, icon, gradient, onClick, cta, disabled }) => (
-          <Card key={title} className="bg-white/5 backdrop-blur-md border border-white/10 shadow-md rounded-xl hover:shadow-xl transition-shadow">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <Card className="bg-neutral-900 border border-neutral-700 hover:shadow-lg transition">
             <CardHeader className="text-center">
-              <div className={`w-14 h-14 mx-auto rounded-full bg-gradient-to-r ${gradient} flex items-center justify-center`}>
-                {icon}
+              <div className="bg-green-600 p-4 rounded-full w-fit mx-auto">
+                <Search className="text-white w-6 h-6" />
               </div>
-              <CardTitle className="text-xl mt-3">{title}</CardTitle>
-              <CardDescription className="text-neutral-400">{desc}</CardDescription>
+              <CardTitle className="mt-4 text-white text-xl">Planning Tecnici</CardTitle>
+              <CardDescription className="text-neutral-400 mt-1">
+                Ricerca per zona, competenze, disponibilità.
+              </CardDescription>
             </CardHeader>
-            <CardContent className="text-center">
-              <Button
-                onClick={onClick}
-                disabled={disabled}
-                className={`w-full mt-4 py-2 px-4 text-sm font-semibold rounded-md transition-all ${
-                  disabled
-                    ? "border border-blue-500 text-blue-500 bg-transparent"
-                    : `bg-gradient-to-r ${gradient} text-white hover:opacity-90`
-                }`}
-              >
-                {cta}
+            <CardContent>
+              <Button onClick={() => navigate("/planning")} className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white">
+                Accedi al Planning
               </Button>
             </CardContent>
           </Card>
-        ))}
-      </section>
 
-      {/* Why Us */}
-      <section className="bg-neutral-900 py-16 px-6">
-        <h3 className="text-2xl font-bold text-center text-white mb-12">
-          Perché scegliere InTech PlanPro?
-        </h3>
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {[{
-            title: "Niente più Excel",
-            desc: "Interfaccia moderna, visuale e senza fogli da aggiornare.",
-            icon: <Calendar className="w-6 h-6 text-white" />,
-            bg: "from-pink-500 to-red-500"
-          }, {
-            title: "Accesso Web",
-            desc: "Tutti i collaboratori possono accedere facilmente.",
-            icon: <Users className="w-6 h-6 text-white" />,
-            bg: "from-yellow-400 to-orange-500"
-          }, {
-            title: "Dati Real-Time",
-            desc: "Collegamento diretto a OneDrive o Skill Matrix Excel.",
-            icon: <BarChart3 className="w-6 h-6 text-white" />,
-            bg: "from-teal-400 to-cyan-500"
-          }].map(({ title, desc, icon, bg }) => (
-            <div key={title} className="bg-white/5 backdrop-blur-md rounded-xl p-6 border border-white/10 hover:shadow-lg transition">
-              <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${bg} flex items-center justify-center mb-4`}>
-                {icon}
+          <Card className="bg-neutral-900 border border-neutral-700 hover:shadow-lg transition">
+            <CardHeader className="text-center">
+              <div className="bg-indigo-600 p-4 rounded-full w-fit mx-auto">
+                <BarChart3 className="text-white w-6 h-6" />
               </div>
-              <h4 className="text-lg font-semibold text-white mb-1">{title}</h4>
-              <p className="text-sm text-neutral-400">{desc}</p>
-            </div>
-          ))}
+              <CardTitle className="mt-4 text-white text-xl">Mandays Globali</CardTitle>
+              <CardDescription className="text-neutral-400 mt-1">
+                Dashboard con analisi Power BI integrate.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button disabled variant="outline" className="w-full border border-indigo-500 text-indigo-400">
+                Prossimamente
+              </Button>
+            </CardContent>
+          </Card>
         </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="text-center py-6 border-t border-white/10 text-neutral-500 text-sm">
-        © 2025 InTech PlanPro – Powered by Street-Tech Vision ⚡
-      </footer>
+      </main>
     </div>
   );
 };
 
 export default Index;
-
