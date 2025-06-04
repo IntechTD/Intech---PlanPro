@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Search, BarChart3, LogIn } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -8,36 +14,36 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-neutral-950 text-white relative overflow-hidden">
-      {/* Watermark background */}
       <img
-        src="/your-logo-path.png"
+        src="/logo.png"
         alt="InTech Watermark"
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] opacity-10 pointer-events-none select-none"
       />
 
-      {/* Header */}
       <header className="bg-black/70 border-b border-neutral-800 px-6 py-4 flex items-center justify-between relative z-10">
         <div className="flex items-center gap-3">
-          <img src="/your-logo-path.png" className="h-10" alt="Logo" />
+          <img src="/logo.png" className="h-10" alt="Logo" />
           <div>
             <h1 className="text-xl font-bold">InTech PlanPro</h1>
             <p className="text-sm text-neutral-400">Sistema di Gestione Tecnici</p>
           </div>
         </div>
-        <Button onClick={() => navigate("/login")} className="bg-gradient-to-r from-fuchsia-600 to-pink-600 hover:from-fuchsia-500 hover:to-pink-500 text-white">
+        <Button
+          onClick={() => navigate("/login")}
+          className="bg-gradient-to-r from-fuchsia-600 to-pink-600 hover:from-fuchsia-500 hover:to-pink-500 text-white"
+        >
           <LogIn className="w-4 h-4 mr-2" />
           Accedi al Sistema
         </Button>
       </header>
 
-      {/* Hero */}
       <main className="px-6 py-20 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent">
             Benvenuto in InTech PlanPro
           </h2>
           <p className="text-lg text-neutral-400 mt-4">
-            Gestisci la ricerca dei tecnici, visualizza disponibilità e mandays senza più utilizzare Excel. Tutto in un'unica piattaforma moderna e accessibile.
+            Gestisci la ricerca dei tecnici, visualizza disponibilità e mandays senza più utilizzare Excel.
           </p>
         </div>
 
@@ -53,7 +59,10 @@ const Index = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button onClick={() => navigate("/planning")} className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white">
+              <Button
+                onClick={() => navigate("/planning")}
+                className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white"
+              >
                 Accedi al Planning
               </Button>
             </CardContent>
