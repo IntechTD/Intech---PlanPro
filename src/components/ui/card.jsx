@@ -1,34 +1,19 @@
-import React from "react";
+export const Card = ({ children, className = "" }) => (
+  <div className={`rounded-lg shadow p-0 ${className}`}>{children}</div>
+);
 
-export function Card({ className, ...props }) {
-  return (
-    <div
-      className={`rounded-xl border bg-white text-card-foreground shadow ${className}`}
-      {...props}
-    />
-  );
-}
+export const CardHeader = ({ children, className = "" }) => (
+  <div className={`p-6 pb-2 ${className}`}>{children}</div>
+);
 
-export function CardHeader({ className, ...props }) {
-  return (
-    <div className={`p-6 ${className}`} {...props} />
-  );
-}
+export const CardContent = ({ children, className = "" }) => (
+  <div className={`p-6 pt-2 ${className}`}>{children}</div>
+);
 
-export function CardTitle({ className, ...props }) {
-  return (
-    <h3 className={`text-lg font-semibold leading-none tracking-tight ${className}`} {...props} />
-  );
-}
+export const CardTitle = ({ children, className = "" }) => (
+  <h3 className={`text-lg font-bold ${className}`}>{children}</h3>
+);
 
-export function CardDescription({ className, ...props }) {
-  return (
-    <p className={`text-sm text-muted-foreground ${className}`} {...props} />
-  );
-}
-
-export function CardContent({ className, ...props }) {
-  return (
-    <div className={`p-6 pt-0 ${className}`} {...props} />
-  );
-}
+export const CardDescription = ({ children, className = "" }) => (
+  <p className={`text-sm ${className}`}>{children}</p>
+);
